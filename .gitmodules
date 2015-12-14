@@ -1,0 +1,3 @@
+[submodule "bin/python/utils/Decorator"]
+	path = bin/python/utils/Decorator
+	url = https://github.com/christopher-henderson/Decorator.git
