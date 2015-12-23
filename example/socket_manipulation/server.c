@@ -58,6 +58,7 @@ void service_request(int request) {
     if (bytes_read == -1) {
         printf("Error occurred reading request file descriptor. %i", errno);
     }
+    free(buffer);
     close_connection(request);
 }
 
