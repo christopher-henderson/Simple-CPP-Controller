@@ -8,7 +8,7 @@
 #include "handler.hpp"
 #include "dispatcher.hpp"
 
-// export BOOST_ROOT=/ust/loca/include/boost
+// export BOOST_ROOT=/usr/loca/include
 // g++ server.cpp -I$BOOST_ROOT -I. -I$BOOST_ROOT/stage/lib -lboost_system -ljsoncpp -pthread
 
 int main(int argc, char * argv[]) {
