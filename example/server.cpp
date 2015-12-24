@@ -1,4 +1,4 @@
-#include "scs/scs.h"
+#include "../scs/scs.h"
 #include "userController.hpp"
 
 /**

@@ -5,8 +5,8 @@
 #include <jsoncpp/json/json.h>
 #include <string>
 #include <iostream>
-#include "scs/scsdefs.h"
-#include "scs/controller.h"
+#include "../scs/scsdefs.h"
+#include "../scs/controller.h"
 
 //typedef boost::network::http::server::request Request;
 
