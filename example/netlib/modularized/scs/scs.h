@@ -3,32 +3,32 @@
 
 #include <string>
 #include "scsdefs.h"
+#include "handler.h"
 #include "controller.h"
 #include "dispatcher.h"
 
 namespace SCS {
 
-    void run(const std::string&, const std::string&);
-    void _event_loop(const Server&);
+    void run(std::string, std::string);
+    void _event_loop(Server&);
 
-    void register(Controller controller) {
-        Dispatcher::register(controller);
+    void register_controller(Controller* controller) {
+        Dispatcher::register_controller(controller);
     }
 
-    void run(const std::string& hostname, const std::string& port) {
+    void run(std::string hostname, std::string port) {
         Handler handler;
-        Server::options options(handler).
-            address(hostname).
-            port(port);
+        Server::options options(handler);
+        options.address(hostname).port(port);
         Server server(options);
         _event_loop(server);
     }
 
-    void _event_loop(const Server& server) {
+    void _event_loop(Server& server) {
         try {
             server.run();
         } catch (std::exception &error) {
-            std::cerr << e.what() << std::endl;
+            std::cerr << error.what() << std::endl;
         }
     }
 

@@ -1,8 +1,9 @@
 #include "scs/scs.h"
-#include "UserController.h"
+#include "userController.hpp"
 
 int main() {
-    SCS::register(UserController c);
-    SCS::run("0.0.0.0", "8080");
+    UserController c;
+    SCS::register_controller(&c);
+    SCS::run(std::string("0.0.0.0"), std::string("8080"));
     return 0;
 }

@@ -12,14 +12,25 @@
 
 class UserController: public Controller {
  public:
-    UserController() {}
-    static std::string URLS[] = {"/user", "/user/"};
-    status std::string METHODS[] = {"get"};
-    Json::value get(const Request &request) {
-        std::string ip = source(request);
-        Json::Value obj(request.body);
+    UserController() {
+        URLS.push_back("/user");
+        URLS.push_back("/user/");
+        METHODS.push_back("get");
+        METHODS.push_back("post");
+    }
+    Json::Value get(Request &request) {
+        Json::Value obj("YOU'RE ABOUT TO GET A REAL COOL THING!\n");
         return obj;
     }
+    Json::Value post(Request &request) {
+        Json::Value obj("YOU JUST MADE A REAL COOL THING!\n");
+        return obj;
+    }
+    std::vector<std::string> getUrls() {return URLS;};
+    std::vector<std::string> getMethods() {return METHODS;};
+ private:
+    std::vector<std::string> URLS;
+    std::vector<std::string> METHODS;
 };
 
 #endif

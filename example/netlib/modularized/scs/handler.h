@@ -5,8 +5,8 @@
 #include "dispatcher.h"
 
 struct Handler {
-    void operator() (const Request &request, const Response &response) {
-        return Dispatcher::handle(request);
+    void operator() (Request &request, Response &response) {
+        response = Dispatcher::handle(request);
     }
 
     void log(std::string dontcare){std::cout << dontcare << std::endl;}
