@@ -1,2 +1,0 @@
-clang
-llvm --with-clang

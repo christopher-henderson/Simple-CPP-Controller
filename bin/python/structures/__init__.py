@@ -1,1 +1,0 @@
-from klass impotr Class
