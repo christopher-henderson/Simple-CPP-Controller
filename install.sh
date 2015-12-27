@@ -15,24 +15,13 @@ BOOST_VERSION=1_60_0
 # }
 
 apt-get update
-apt-get install gcc g++ cmake libicu-dev -y
+apt-get install gcc g++ cmake -y
 
-#wget http://skylineservers.dl.sourceforge.net/project/boost/boost/1.60.0/boost_$BOOST_VERSION.tar.gz && tar zxvf boost_$BOOST_VERSION.tar.gz
-#cd boost_$BOOST_VERSION
-git clone https://github.com/boostorg/boost.git
-cd deps/boost
-git submodule init libs/program_options
-git submodule init libs/test
-git submodule init libs/system
-git submodule init libs/regex
-git submodule init libs/date_time
-git submodule init libs/thread
-git submodule init libs/filesystem
-git submodule init libs/chrono
-git submodule init libs/atomic
-git submodule update
+cd deps
+wget http://skylineservers.dl.sourceforge.net/project/boost/boost/1.60.0/boost_$BOOST_VERSION.tar.gz && tar zxvf boost_$BOOST_VERSION.tar.gz
+cd boost_$BOOST_VERSION
 ./bootstrap.sh --with-libraries=program_options,test,system,regex,date_time,thread,filesystem,chrono,atomic
-sudo ./b2 install
+./b2 install
 
 cd ..
 
