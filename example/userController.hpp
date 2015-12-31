@@ -8,8 +8,6 @@
 #include "../scs/scsdefs.h"
 #include "../scs/controller.h"
 
-//typedef boost::network::http::server::request Request;
-
 class UserController: public Controller {
  public:
     UserController() {
@@ -18,13 +16,11 @@ class UserController: public Controller {
         METHODS.push_back("get");
         METHODS.push_back("post");
     }
-    Json::Value get(Request &request) {
-        Json::Value obj("YOU'RE ABOUT TO GET A REAL COOL THING!\n");
-        return obj;
+    Json::Value* get(Request &request) {
+        return new Json::Value("YOU'RE ABOUT TO GET A REAL COOL THING!\n");
     }
-    Json::Value post(Request &request) {
-        Json::Value obj("YOU JUST MADE A REAL COOL THING!\n");
-        return obj;
+    Json::Value* post(Request &request) {
+        return new Json::Value("YOU JUST MADE A REAL COOL THING!\n");
     }
     std::vector<std::string> getUrls() {return URLS;};
     std::vector<std::string> getMethods() {return METHODS;};
